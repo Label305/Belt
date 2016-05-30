@@ -1,0 +1,22 @@
+{
+  "name": "label305/belt",
+  "description": "Helping you to import/export data in a memory efficient way",
+  "authors": [
+    {
+      "name": "Joris Blaak",
+      "email": "joris@label305.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Belt\\": "src/",
+      "Tests\\": "tests/"
+    }
+  },
+  "require": {
+  },
+  "require-dev": {
+    "mockery/mockery": "^0.9.5",
+    "phpunit/phpunit": "~5.3"
+  }
+}
