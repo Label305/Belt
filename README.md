@@ -1,6 +1,8 @@
 Belt
 ====
 
+[![Build Status](https://travis-ci.org/Label305/Belt.svg?branch=master)](https://travis-ci.org/Label305/Belt)
+
 Helping us to generate exports and process import in a memory efficient way.
 
 Usage
