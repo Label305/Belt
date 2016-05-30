@@ -26,6 +26,6 @@ class FilePersister implements StringPersister
      */
     public function append(string $item)
     {
-        // TODO: Implement append() method.
+        file_put_contents($this->path, $item, FILE_APPEND);
     }
 }
