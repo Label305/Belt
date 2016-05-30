@@ -18,14 +18,14 @@ class FlatteningTransformer implements Transformer
     {
         $result = [];
         $data = $dataBag->dump();
-        foreach ($data as $value) {
+        foreach ($data as $key => $value) {
             if ($value instanceof DataBag) {
                 $result = array_merge($result, $this->transform($value));
             } else {
-                $result[] = $value;
+                $result[$key] = $value;
             }
         }
-        
+
         return $result;
     }
 }

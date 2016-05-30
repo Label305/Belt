@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Tests\Resources;
+namespace Belt\Providers;
 
 
 use Belt\Data\DataBag;

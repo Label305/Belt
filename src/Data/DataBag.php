@@ -27,13 +27,13 @@ class DataBag
      */
     public function get(string $key)
     {
-        return isset($this->data[$key]) ? $this->data[$key] : null;
+        return $this->data[$key] ?? null;
     }
 
     /**
      * @return array
      */
-    public function dump()
+    public function dump():array
     {
         return $this->data;
     }

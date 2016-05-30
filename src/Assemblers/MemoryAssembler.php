@@ -1,7 +1,6 @@
 <?php
 
-
-namespace Tests\Resources;
+namespace Belt\Assemblers;
 
 
 use Belt\Assembler;
@@ -24,7 +23,6 @@ class MemoryAssembler implements Assembler
     }
 
     /**
-     * FOR TESTING PURPOSES!
      * @return array
      */
     public function getData():array
