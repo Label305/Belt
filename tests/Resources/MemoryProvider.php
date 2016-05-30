@@ -29,7 +29,11 @@ class MemoryProvider implements Provider
     public function next()
     {
         foreach ($this->data as $item) {
-            yield $item;
+            $dataBag = new DataBag();
+            foreach ($item as $key => $value) {
+                $dataBag->add($key, $value);
+            }
+            yield $dataBag;
         }
     }
 }

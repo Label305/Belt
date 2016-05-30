@@ -4,7 +4,6 @@
 namespace Tests;
 
 
-use Belt\Data\DataBag;
 use Belt\Exporter;
 use Belt\Transformers\FlatteningTransformer;
 use Tests\Resources\MemoryAssembler;
@@ -16,12 +15,12 @@ class ExporterTest extends TestCase
     public function test_export()
     {
         /* Given */
-        $a = new DataBag();
-        $a->add('key', 3);
-
-        $b = new DataBag();
-        $b->add('key', 7);
-
+        $a = [
+            'key' => 3
+        ];
+        $b = [
+            'key' => 7
+        ];
         $dataProvider = new MemoryProvider([$a, $b]);
 
         $transformer = new FlatteningTransformer();
