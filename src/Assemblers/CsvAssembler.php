@@ -31,7 +31,7 @@ class CsvAssembler implements Assembler
     public function __construct(StringPersister $persister)
     {
         $this->persister = $persister;
-        $this->helper = tmpfile();
+        $this->helper = fopen('php://memory', 'r+');
     }
 
     /**
@@ -73,14 +73,19 @@ class CsvAssembler implements Assembler
      */
     private function write(array $item)
     {
+        //Clear the helper file
+        rewind($this->helper);
+        ftruncate($this->helper, 0);
+        
+        //Put the CSV line
         fputcsv($this->helper, $item);
+
+        //Read the written line
         rewind($this->helper);
         $contents = '';
         while (!feof($this->helper)) {
             $contents .= fread($this->helper, 1024);
         }
-        rewind($this->helper);
-        ftruncate($this->helper, sizeof($contents));
 
         $this->persister->append($contents);
     }
