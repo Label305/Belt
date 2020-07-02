@@ -11,8 +11,8 @@ interface Transformer
 
     /**
      * @param DataBag $dataBag
-     * @return array
+     * @return mixed[]
      */
-    public function transform(DataBag $dataBag):array;
+    public function transform(DataBag $dataBag): array;
 
 }

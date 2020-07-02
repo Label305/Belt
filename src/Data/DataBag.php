@@ -8,21 +8,21 @@ class DataBag
 {
 
     /**
-     * @var array
+     * @var mixed[]
      */
     private $data = [];
 
     /**
      * @param string $key
-     * @param        $value
+     * @param mixed $value
      */
-    public function add(string $key, $value)
+    public function add(string $key, $value): void
     {
         $this->data[$key] = $value;
     }
 
     /**
-     * @param $key
+     * @param string $key
      * @return mixed|null
      */
     public function get(string $key)
@@ -31,9 +31,9 @@ class DataBag
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
-    public function dump():array
+    public function dump(): array
     {
         return $this->data;
     }

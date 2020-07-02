@@ -12,7 +12,7 @@ class Exporter
      * @param Transformer $transformer
      * @param Assembler   $assembler
      */
-    public static function export(Provider $provider, Transformer $transformer, Assembler $assembler)
+    public static function export(Provider $provider, Transformer $transformer, Assembler $assembler): void
     {
         foreach ($provider->next() as $item) {
             $data = $transformer->transform($item);

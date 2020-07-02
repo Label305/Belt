@@ -10,8 +10,8 @@ interface Provider
 {
 
     /**
-     * @return DataBag
+     * @return DataBag[]
      */
-    public function next();
+    public function next(): iterable;
 
 }

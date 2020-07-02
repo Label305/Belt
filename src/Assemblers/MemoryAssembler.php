@@ -9,23 +9,23 @@ class MemoryAssembler implements Assembler
 {
 
     /**
-     * @var array
+     * @var mixed[]
      */
     private $data = [];
 
     /**
-     * @param array $item
+     * @param mixed[] $item
      * @return void
      */
-    public function receive(array $item)
+    public function receive(array $item): void
     {
         $this->data[] = $item;
     }
 
     /**
-     * @return array
+     * @return mixed[]
      */
-    public function getData():array
+    public function getData(): array
     {
         return $this->data;
     }
