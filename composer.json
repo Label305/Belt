@@ -17,6 +17,7 @@
   },
   "require-dev": {
     "mockery/mockery": "^0.9.5",
-    "phpunit/phpunit": "~5.3"
+    "phpunit/phpunit": "~5.3",
+    "phpstan/phpstan": "^0.12.32"
   }
 }

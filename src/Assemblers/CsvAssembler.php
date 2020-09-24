@@ -15,7 +15,7 @@ class CsvAssembler implements Assembler
     private $persister;
 
     /**
-     * @var array
+     * @var mixed[]
      */
     private $header;
 
@@ -31,14 +31,18 @@ class CsvAssembler implements Assembler
     public function __construct(StringPersister $persister)
     {
         $this->persister = $persister;
-        $this->helper = fopen('php://memory', 'r+');
+        $resource = fopen('php://memory', 'rb+');
+        if (!$resource) {
+            throw new \Exception('Unable to open resource');
+        }
+        $this->helper = $resource;
     }
 
     /**
-     * @param array $item
+     * @param mixed[] $item
      * @return void
      */
-    public function receive(array $item)
+    public function receive(array $item): void
     {
         if (!isset($this->header)) {
             $this->header = array_values(array_keys($item));
@@ -51,10 +55,10 @@ class CsvAssembler implements Assembler
     }
 
     /**
-     * @param array $item
-     * @return array
+     * @param mixed[] $item
+     * @return mixed[]
      */
-    private function prepare(array $item):array
+    private function prepare(array $item): array
     {
         if (!isset($this->header)) {
             return $item;
@@ -69,14 +73,14 @@ class CsvAssembler implements Assembler
     }
 
     /**
-     * @param array $item
+     * @param mixed[] $item
      */
-    private function write(array $item)
+    private function write(array $item): void
     {
         //Clear the helper file
         rewind($this->helper);
         ftruncate($this->helper, 0);
-        
+
         //Put the CSV line
         fputcsv($this->helper, $item);
 

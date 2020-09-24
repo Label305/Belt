@@ -9,6 +9,9 @@ use Belt\StringPersister;
 class MemoryPersister implements StringPersister
 {
 
+    /**
+     * @var string
+     */
     private $str = '';
 
     /**

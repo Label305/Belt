@@ -9,9 +9,9 @@ interface Assembler
 
 
     /**
-     * @param array $item
+     * @param mixed[] $item
      * @return void
      */
-    public function receive(array $item);
+    public function receive(array $item): void;
 
 }

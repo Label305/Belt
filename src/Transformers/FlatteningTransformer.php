@@ -12,9 +12,9 @@ class FlatteningTransformer implements Transformer
 
     /**
      * @param DataBag $dataBag
-     * @return string
+     * @return string[]
      */
-    public function transform(DataBag $dataBag):array
+    public function transform(DataBag $dataBag): array
     {
         $result = [];
         $data = $dataBag->dump();

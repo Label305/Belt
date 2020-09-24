@@ -9,13 +9,13 @@ use Belt\Provider;
 class MemoryProvider implements Provider
 {
     /**
-     * @var array
+     * @var mixed[]
      */
     private $data;
 
     /**
      * MemoryProvider constructor.
-     * @param DataBag[] $data
+     * @param mixed[] $data
      */
     public function __construct(array $data)
     {
@@ -23,9 +23,9 @@ class MemoryProvider implements Provider
     }
 
     /**
-     * @return DataBag
+     * @return DataBag[]
      */
-    public function next()
+    public function next(): iterable
     {
         foreach ($this->data as $item) {
             $dataBag = new DataBag();
